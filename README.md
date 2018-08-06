@@ -1,6 +1,8 @@
 # Company Data Miner
 A CLI app to query company JSON - I decided to create a CLI app using NodeJS. I went with Node because I am comfortable with JavaScript, and Node allows me to write JS throughout. I used the [colors](https://www.npmjs.com/package/colors) npm package to add nice colors to my console.logs to make the interaction and outputs more legible. I made some assumptions as I built this app including that users will already have general knowlege of how to use the command line. I do not have instructions on accessing the command line for a respective operating system, nor do I provide details about basic UNIX commands. I also assumed users will generally type in commands and search parameters correctly as I do not fully developed error handling. 
 
+![Terminal Screenshot](/company_miner_CLI.png "Company Miner CLI")
+
 ## Setup to Run
 * clone repository
 * run `npm install` to install the required dependencies 

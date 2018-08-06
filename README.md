@@ -5,11 +5,11 @@ A CLI app to query company JSON - I decided to create a CLI app using NodeJS. I 
 
 ## Setup to Run
 * clone repository
-* run `npm install` to install the required dependencies 
+* cd into cloned directory
+* run `npm install` from within directory to install the required dependencies 
 * type `company-miner`, followed by a supported command, followed by a search parameter
 * **Example** `$ company-miner locate TX`
-
-* Run tests with `jasmine init` followed by `npm test`
+* Run tests with `npm test`
 
 ## Supported Commands
 * **locate** - find companies based on state

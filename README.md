@@ -7,8 +7,8 @@ A CLI app to query company JSON - I decided to create a CLI app using NodeJS. I 
 * clone repository
 * cd into cloned directory
 * run `npm install` from within directory to install the required dependencies 
-* type `company-miner`, followed by a supported command, followed by a search parameter
-* **Example** `$ company-miner locate TX`
+* type `company-miner`, followed by `[file path]`, followed by a supported command, followed by command argument
+* **Example** `$ company-miner /Users/kyleeaston/Desktop/company_data.json locate TX`
 * Run tests with `npm test`
 
 ## Supported Commands
@@ -22,7 +22,7 @@ A CLI app to query company JSON - I decided to create a CLI app using NodeJS. I 
 ## Example Input/Output
 1. **Input** with *locate*
 ```
-$ company-miner locate IN
+$ company-miner /Users/kyleeaston/Desktop/company_data.json locate IN
 ```
 
 **Output**
@@ -35,7 +35,7 @@ Number of Companies: 4
 
 2. **Input** with *find_before*
 ```
-$ company-miner find_before 1800
+$ company-miner /Users/kyleeaston/Desktop/company_data.json find_before 1800
 ```
 
 **Output**
@@ -48,7 +48,7 @@ Number of Companies: 2
 
 3. **Input** with *find_after*
 ```
-$ company-miner find_after 2013
+$ company-miner /Users/kyleeaston/Desktop/company_data.json find_after 2013
 ```
 
 **Output**
@@ -61,7 +61,7 @@ Number of Companies: 21
 
 4. **Input** with *find_companies_between_size*
 ```
-$ company-miner find_companies_between_size 10,001+
+$ company-miner /Users/kyleeaston/Desktop/company_data.json find_companies_between_size 10,001+
 ```
 
 **Output**
@@ -74,7 +74,7 @@ Number of Companies: 37
 
 5. **Input** with *find_type*
 ```
-$ company-miner find_type Education
+$ company-miner /Users/kyleeaston/Desktop/company_data.json find_type Education
 ```
 
 **Output**
@@ -87,10 +87,7 @@ Number of Companies: 10
 
 ## Dependencies
 * [colors](https://www.npmjs.com/package/colors)
-* [commander](https://www.npmjs.com/package/commander)
-* [node-fetch](https://www.npmjs.com/package/node-fetch)
 * [ora](https://www.npmjs.com/package/ora)
-* [request](https://www.npmjs.com/package/request)
 * [jasmine](https://www.npmjs.com/package/jasmine)
 
 ## Areas for Improvement

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const program = require('commander');
+const colors = require('colors/safe');
 
 const findCompByState = require('./lib/findCompByState.js');
 const findCompBeforeDate = require('./lib/findCompBeforeDate.js');
@@ -8,49 +8,39 @@ const findCompAfterDate = require('./lib/findCompAfterDate.js');
 const findCompBetweenSize = require('./lib/findCompBetweenSize.js');
 const findCompByType = require('./lib/findCompByType.js');
 
-// Find companies by state
-program
-  .command('locate')
-  .alias('loc')
-  .description('Find companies by their state')
-  .action(function(args) {
-    findCompByState(args);
-  });
+const [,, ...args] = process.argv;
 
-// Find companies founded in or before certain year
-program
-  .command('find_before')
-  .alias('before')
-  .description("Find companies founded during and before a specified year")
-  .action(function(args) {
-    findCompBeforeDate(args);
-  });
+var filePath = args[0];
+var command = args[1];
+var commandArg = args[2];
+console.log(colors.blue("FILE PATH >>> "), filePath);
+console.log(colors.blue("COMMAND >>> "), command);
+console.log(colors.blue("ARGUMENT >>> "), commandArg);
 
-// Find companies founded in or after certain year
-program
-  .command('find_after')
-  .alias('after')
-  .description("Find companies founded during and after a specified year")
-  .action(function(args) {
-    findCompAfterDate(args);
-  });
+if ( args.length < 3 ) {
+  console.log(colors.red("missing file_path, command, or argument"));
+} else if ( args.length === 3) {
+    switch (command) {
+      case 'locate':
+        findCompByState(filePath, commandArg);
+        break;
 
-// Find companies by their number of full-time employees
-program
-  .command('find_companies_between_size')
-  .alias('size')
-  .description("Find companies by their number of full-time employees")
-  .action(function(args) {
-    findCompBetweenSize(args);
-  });
+      case 'find_before':
+        findCompBeforeDate(filePath, commandArg);
+        break;
 
-// Find companies by their industry/type/sector
-program
-  .command('find_type')
-  .alias('type')
-  .description("Find companies by their industry")
-  .action(function(args) {
-    findCompByType(args);
-  });
+      case 'find_after':
+        findCompAfterDate(filePath, commandArg);
+        break;
 
-program.parse(process.argv);
+      case 'find_companies_between_size':
+        findCompBetweenSize(filePath, commandArg);
+        break;
+
+      case 'find_type':
+        findCompByType(filePath, commandArg);
+        break;
+    }
+  } else if (args.length > 3) {
+    console.log(colors.red("Too many commands entered!"));
+  }

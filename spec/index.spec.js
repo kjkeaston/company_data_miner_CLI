@@ -4,24 +4,6 @@ const Find_After = require('../lib/findCompAfterDate')
 const Find_Size = require('../lib/findCompBetweenSize')
 const Find_Type = require('../lib/findCompByType')
 
-const request = require('request');
-const baseURL = 'https://s3-us-west-2.amazonaws.com/bain-coding-challenge/data.json';
-
-// Check S3 is up and running
-describe('Check S3 API is running', () => {
-  var data = {};
-  beforeAll((done) => {
-    request.get(baseURL, (error, response, body) => {
-      data.status = response.statusCode;
-      data.body = body;
-      done();
-    });
-  });
-  it('Status 200', () => {
-    expect(data.status).toBe(200);
-  });
-});
-
 // 'locate' command
 describe('Check findCompByState', function() {
   var state = null;
